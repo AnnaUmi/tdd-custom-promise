@@ -37,4 +37,15 @@ class CustomPromise {
     return this;
   }
 }
+const promise = new CustomPromise((resolve, reject) => {
+  setTimeout(() => {
+    //resolve("Helo world");
+    reject("aaa error");
+  });
+});
+promise
+  .then((res) => res.toUpperCase())
+  .then((title) => console.log(title))
+  .catch((err) => console.log("err", err))
+  .finally(() => console.log("finally"));
 module.exports = CustomPromise;
